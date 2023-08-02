@@ -4,9 +4,9 @@ import TwitterLayout from '@/Layouts/TwitterLayout.vue';
 </script>
 
 <template>
-    <Head title="Welcome"/>
+    <Head title="Twitter"/>
 
     <TwitterLayout>
-        
+
     </TwitterLayout>  
 </template>
