@@ -56,8 +56,7 @@ const textareaInput = (e) => {
                 <MenuItem iconString="Messages" />
                 <MenuItem iconString="Profile" />
 
-                <button
-                @click="createTweet = true"
+                <button @click="createTweet = true"
                     class="lg:w-full mt-8 ml-2 text-white font-extrabold text-[22px] bg-[#1C9CEF] p-3 px-3 rounded-full cursor-pointer">
                     <span class="lg:block hidden">Tweet</span>
                     <span class="block lg:hidden">
@@ -86,12 +85,13 @@ const textareaInput = (e) => {
                         </div>
                     </div>
                 </div>
+                <div class="absolute top-0 z-0 h-full overflow-auto scrollbar-hide">
+                    <div class="mt-[126px]"></div>
+                    <slot />
+                    <div class="pb-4"></div>
+                </div>
             </div>
-            <div class="absolute top-0 z-0 h-full overflow-auto scrollbar-hide">
-                <div class="mt-[126px]"></div>
-                <slot />
-                <div class="pb-4"></div>
-            </div>
+
             <div class="lg:block hidden lg:w-4/12 h-screen border-l border-gray-800 pl-4">
                 <div class="w-full p-1 mt-2 px-4 lg:flex items-center rounded-full hidden bg-[#212327]">
                     <Magnify fillColor="#5e5c5c" :size="25" />
@@ -152,7 +152,8 @@ const textareaInput = (e) => {
         </div>
     </div>
 
-    <div id="OverlaySection" v-if="createTweet" class="fixed top-0 left-0 w-full h-screen bg-black md:bg-gray-400 md:bg-opacity-30 md:p-3">
+    <div id="OverlaySection" v-if="createTweet"
+        class="fixed top-0 left-0 w-full h-screen bg-black md:bg-gray-400 md:bg-opacity-30 md:p-3">
         <div class="md:max-w-2xl md:mx-auto md:mt-10 md:rounded-xl bg-black">
             <div class="flex items-center justify-between md:inline-block p-2 m-2 rounded-full cursor-pointer">
                 <div @click="closeMessageBox()" class="hover:bg-gray-800 inline-block p-2 rounded-full cursor-pointer">
