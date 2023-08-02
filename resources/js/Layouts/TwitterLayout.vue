@@ -42,6 +42,19 @@ const textareaInput = (e) => {
 
 }
 
+const addTweet = () => {
+    if (!tweet.value) return
+
+    let data = new FormData()
+
+    data.append('tweet', tweet.value)
+    data.append('file', file.value)
+
+    router.post('/tweets', data)
+
+    closeMessageBox()
+}
+
 </script>
 <template>
     <div class="fixed w-full">
@@ -161,7 +174,8 @@ const textareaInput = (e) => {
                     <ArrowLeft fillColor="#fff" :size="28" class="md:hidden block" />
                 </div>
 
-                <button :disabled="!tweet" :class="tweet ? 'bg-[#1C9CEF] text-white' : 'bg-[#124D77] text-gray-400'"
+                <button @click="addTweet()" :disabled="!tweet"
+                    :class="tweet ? 'bg-[#1C9CEF] text-white' : 'bg-[#124D77] text-gray-400'"
                     class="md:hidden font-extrabold text-[16px] p-1.5 px-4 rounded-full cursor-pointer">
                     Tweet
                 </button>
@@ -178,8 +192,8 @@ const textareaInput = (e) => {
                         </div>
                     </div>
                     <div>
-                        <textarea :oninput="textareaInput" cols="30" rows="4" placeholder="What's happening?"
-                            v-model="tweet" ref="textarea"
+                        <textarea v-model="tweet" :oninput="textareaInput" cols="30" rows="4"
+                            placeholder="What's happening?" ref="textarea"
                             class="w-full bg-black border-0 mt-2 focus:ring-0 text-white text-[19px] font-extrabold min-h-[120px]"></textarea>
                     </div>
                     <div class="w-full">
@@ -207,7 +221,8 @@ const textareaInput = (e) => {
                                 <Emoticon fillColor="#1C9CEF" :size="25" />
                             </div>
                         </div>
-                        <button :disabled="!tweet" :class="tweet ? 'bg-[#1C9CEF] text-white' : 'bg-[#124D77] text-gray-400'"
+                        <button @click="addTweet()" :disabled="!tweet"
+                            :class="tweet ? 'bg-[#1C9CEF] text-white' : 'bg-[#124D77] text-gray-400'"
                             class="hidden md:block font-extrabold text-[16px] p-1.5 px-4 rounded-full cursor-pointer">
                             Tweet
                         </button>

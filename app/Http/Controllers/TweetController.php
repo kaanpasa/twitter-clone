@@ -40,7 +40,7 @@ class TweetController extends Controller
         $tweet = new Tweet;
 
         $tweet->name = 'Kaan Pasa';
-        $tweet->handle = 'kaanpasa';
+        $tweet->handle = '@kaanpasa';
         $tweet->image = 'https://media.licdn.com/dms/image/C4E03AQG9dwNSgwC_EA/profile-displayphoto-shrink_800_800/0/1647854428419?e=2147483647&v=beta&t=yWdyPxGnIHokHGNJA1bBFd1U9M6DLHGE94eja0TVBKI';
         $tweet->tweet = $request->input('tweet');
         if($fileName){
